@@ -1,0 +1,22 @@
+34 ?- 
+|    female(Who).
+Who = sara ;
+Who = nora.
+
+35 ?- male(_).
+true .
+
+36 ?- parent(X,Y), parent(Y,faisal).
+X = ali,
+Y = muhammad .
+
+37 ?- parent(ahmad,X), female(X).
+X = sara ;
+X = nora ;
+false.
+
+38 ?- parent(X,ahmad), parent(X,muhammad).
+X = ali.
+
+39 ?- male(khan), parent(X,khan), parent(X,nora).
+X = ahmad.

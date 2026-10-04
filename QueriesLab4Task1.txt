@@ -1,0 +1,52 @@
+23 ?- house = house.
+true.
+
+The terms can be unified, because both terms are constants and are exactly the same.
+
+24 ?- house = abc.
+false.
+
+The terms cannot be unified, because both terms are different and neither one is a variable.
+
+25 ?- edge(a,b) = edge(C,b).
+C = a.
+
+The terms can be unified, because both structures have the same name, and 2 arguments, and since b matches on both ends of the = operator and C is a variable so it can be filled in with a.
+
+26 ?- edge(a,d) = edge(C,B).
+C = a,
+B = d.
+
+The terms can be unified, because both structures have the same name,  the same number of arguments (2), and the arguments of the second structure are variables that can be filled in with the values of the first structure.
+
+27 ?- edge(C,B) = edge(a,d).
+C = a,
+B = d.
+
+The terms can be unified, because the number of arguments of each structure unifies, the structure names are the same, and the arguments of the first structure are variables that can be filled in with the second structures values.
+
+28 ?- edge(A,f(g,h)) = edge(a,B).
+A = a,
+B = f(g, h).
+
+The terms can be unified, because the structures share a name, have the same number of arguments, and A can be filled in by a, while B can be filled in by f(g,h).
+
+29 ?- edge(A,A) = edge(b,c).
+false.
+
+The terms cannot be unified even though the structures share a name and have the same number of arguments. That is because the variable A appears twice and cannot be filled by different values for each position. So it cannot be filled in by both b and c.
+
+30 ?- edge(A,A) = edge(b,b).
+A = b.
+
+The terms can be unified, because the structure names are identical, the structures have the same number of arguments, and both arguments in the first structure are the same variable, while both arguments of the second structure are the same value.
+
+31 ?- A = B, B = f.
+A = B, B = f.
+
+The terms can be unified, because in the query variable A is unified with B, which is filled by the value f, so in the end, the variable A has the value f, so it is not being filled by more than 1 value.
+
+32 ?- A = B, B = f, A = e.
+false.
+
+The terms cannot be unified, because in the query variable A is filled by variable B, variable B is filled by the value f and variable A is filled by the value e, this results in A being filled by 2 different values, which is not possible.
